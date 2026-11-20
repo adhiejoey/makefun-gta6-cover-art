@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./fonts/Pacifico-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #14091f; color: #f5eef7; font: 15px/1.45 system-ui, sans-serif; }
+body {
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(255, 46, 136, 0.35), transparent 60%),
+    radial-gradient(700px 500px at 0% 110%, rgba(0, 229, 255, 0.22), transparent 60%),
+    linear-gradient(160deg, #1c0b2e 0%, #14091f 55%, #0b0616 100%);
+}
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 22px; max-width: 1440px; margin: 0 auto; }
+.controls { width: 340px; flex: none; display: flex; flex-direction: column; gap: 16px; padding-bottom: 24px; }
+.controls h1 {
+  margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 44px; line-height: 0.95;
+  letter-spacing: 1px; color: #fff;
+  background: linear-gradient(180deg, #fff 20%, #ffd76a 55%, #ff2e88 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  text-shadow: none; filter: drop-shadow(0 3px 0 rgba(0,0,0,0.45));
+}
+.tagline { margin: 0; color: #cdbcd6; font-size: 14px; }
+.group { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.group-title { font-family: 'Anton', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #ffd76a; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.hint { margin: 0; color: #a894b3; font-size: 12.5px; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; color: #e9dcf0; }
+input[type=text] { font: inherit; padding: 9px 10px; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; background: rgba(0,0,0,0.35); color: #fff; }
+input[type=text]:focus { outline: 2px solid #ff2e88; outline-offset: 1px; }
+input[type=file] { display: none; }
+.file-btn {
+  display: block; text-align: center; font-weight: 700; padding: 11px; border-radius: 9px; cursor: pointer;
+  background: linear-gradient(90deg, #ff2e88, #ff7a18); color: #fff; border: 0;
+}
+button {
+  font: inherit; font-weight: 700; padding: 9px 12px; border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px; background: rgba(255,255,255,0.09); color: #f5eef7; cursor: pointer;
+}
+button:hover { background: rgba(255,255,255,0.17); }
+button.on { background: #ffd76a; border-color: #ffd76a; color: #1c0b2e; }
+button.ghost { font-weight: 600; padding: 7px 10px; font-size: 13px; }
+button.big {
+  padding: 13px; font-size: 17px; border: 0; color: #fff;
+  background: linear-gradient(90deg, #ff2e88, #7a2eff 55%, #00c2ff);
+  box-shadow: 0 6px 24px rgba(255, 46, 136, 0.45);
+}
+#grades button { background: linear-gradient(135deg, var(--sw1), var(--sw2)); color: #fff; border-color: rgba(255,255,255,0.4); text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
+#grades button.on { outline: 3px solid #fff; outline-offset: 1px; }
+.slider { font-weight: 600; font-size: 13px; }
+input[type=range] { width: 100%; accent-color: #ff2e88; }
+#status { margin: 0; color: #a894b3; font-size: 13px; min-height: 1.2em; }
+.stage { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; position: sticky; top: 22px; }
+#preview { width: min(100%, 74vh); height: auto; border-radius: 6px; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255,255,255,0.12); cursor: grab; touch-action: none; }
+#preview:active { cursor: grabbing; }
+.stage-hint { margin: 0; color: #a894b3; font-size: 13px; text-align: center; }
+
+body.shot-cover { background: #000; }
+body.shot-cover .controls, body.shot-cover .stage-hint { display: none; }
+body.shot-cover .app { padding: 0; max-width: none; display: block; }
+body.shot-cover .stage { position: static; }
+body.shot-cover #preview { width: 100vw; height: 100vh; object-fit: contain; border-radius: 0; box-shadow: none; }
+body.shot-editor .stage { position: static; }
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .controls { width: 100%; }
+  .stage { position: static; width: 100%; }
+}
